@@ -1,0 +1,11 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+<h1> Bienvenidos al SitioWeb</h1>
+<h3>Fecha:</h3>
+<h3>@ViewBag.Fecha</h3>
+ <a asp-action="Index" asp-controller="Empleado" >Empleado</a>
+ @Html.ActionLink("Ir a Empleados","Index","Empleado")
+</div>

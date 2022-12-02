@@ -1,0 +1,14 @@
+﻿
+@model SistemaWebEmpleado.Models.Empleado
+
+@{
+    ViewBag.Title = "Eliminar empleado";
+}
+
+<h1>Eliminar empleado</h1>
+<br />
+@using (Html.BeginForm("Delete", "Empleado", FormMethod.Post))
+{
+    <input type="Submit" value="Delete" class="btn btn-danger me-3" />
+    @Html.ActionLink("Volver al listado", "Index", "Empleado")
+}

@@ -1,0 +1,46 @@
+﻿
+#Header {
+    background-color: aqua;
+    color: antiquewhite;
+    font-size: large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    top: 0px;
+    left: 0px;
+    text-align: right;
+    width: 100%;
+    height: 20%;
+}
+#Sidebar {
+    background-color: white;
+    color: black;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 8%;
+}
+#Main {
+    background-color: white;
+    color: black;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 52%;
+}
+#Nav {
+    background-color: lawngreen;
+    color: white;
+    top: 0px;
+    left: 0px;
+    position: center;
+    width: 100%;
+    height: 10%;
+}
+#Footer {
+    background-color: aqua;
+    color: antiquewhite;
+    top: 0px;
+    left: 0px;
+    position: center;
+    width: 100%;
+    height: 10%;
+}
