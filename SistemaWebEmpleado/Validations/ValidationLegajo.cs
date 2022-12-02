@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace SistemaWebEmpleado.Validations
@@ -16,18 +17,8 @@ namespace SistemaWebEmpleado.Validations
         public override bool IsValid(object value)
         {
             string legajo = Convert.ToString(value);
-
-            legajo.Replace(" ", "");
-
-            if (legajo.Substring(0, 2) == "AA" && int.TryParse(legajo.Replace("AA", ""), out int numLegajo) && legajo.Replace("AA", "").Length == 5)
-            {
-                
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            string pattern = @"AA\d{5}";
+            return Regex.IsMatch(legajo, pattern);
         }
     }
 }
