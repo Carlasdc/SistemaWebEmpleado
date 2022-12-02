@@ -32,6 +32,7 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nombre)
+                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Apellido)
@@ -46,8 +47,10 @@
                     @Html.DisplayFor(modelItem => item.Titulo)
                 </td>
                 <td>
-                    <a asp-action="ListaPorTitulo" asp-route-id="@item.Id">Titulo</a>
-                   
+                    <a asp-action="ListarPorTitulo" asp-route-id="@item.Titulo">Titulo</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a asp-action="Create" asp-controller="Empleado">Nuevo Empleado</a>
                 </td>
             </tr>
         }

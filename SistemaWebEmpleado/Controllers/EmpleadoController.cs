@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SistemaWebEmpleado.Data;
 using SistemaWebEmpleado.Models;
 using System.Collections.Generic;
@@ -35,9 +36,9 @@ namespace SistemaWebEmpleado.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet("/person/ListaPorTitulo/{titulo}")]
-        // GET: /person/ListaPorTitulo/manager
-        public IActionResult ListaPorTitulo(string titulo)
+        [HttpGet("/empleado/ListarPorTitulo/{titulo}")]
+        // GET: /empleado/ListarPorTitulo/manager
+        public IActionResult ListarPorTitulo(string titulo)
         {
             List<Empleado> lista = (from p in _context.Empleados
                                   where p.Titulo == titulo
@@ -52,6 +53,30 @@ namespace SistemaWebEmpleado.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
 
+            Empleado empleado = _context.Empleados.Find(id);
+
+            return View("Edit", empleado);
+
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Empleado empleado)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                _context.Entry(empleado).State = EntityState.Modified;
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(empleado);
+
+        }
     }
 }
