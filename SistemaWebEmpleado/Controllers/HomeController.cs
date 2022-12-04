@@ -8,6 +8,7 @@ namespace SistemaWebEmpleado.Controllers
         
         public IActionResult Index()
         {
+            ViewBag.SideBar = "Bienvenidos";
             ViewBag.Fecha = DateTime.Now.ToString();
             return View();
         }

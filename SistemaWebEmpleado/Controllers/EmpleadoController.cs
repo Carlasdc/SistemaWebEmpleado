@@ -18,22 +18,32 @@ namespace SistemaWebEmpleado.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.SideBar = "Administracion de Empleados";
             return View("Index", _context.Empleados.ToList());
         }
 
         public IActionResult Create()
         {
-            Empleado empleado = new Empleado();
-            return View("Create", empleado);
+              Empleado empleado = new Empleado();
+              return View("Create", empleado);
+            
         }
 
         // POST: /Empleado/Create
         [HttpPost]
         public IActionResult Create(Empleado empleado)
         {
-            _context.Add(empleado);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                _context.Empleados.Add(empleado);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Create", empleado);
+            }
+
         }
 
         [HttpGet("/empleado/ListarPorTitulo/{titulo}")]
@@ -77,6 +87,16 @@ namespace SistemaWebEmpleado.Controllers
 
             return View(empleado);
 
+        }
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            Empleado empleado = _context.Empleados.Find(id);
+            if (empleado == null)
+            {
+                return NotFound();
+            }
+            return View("Detail", empleado);
         }
     }
 }

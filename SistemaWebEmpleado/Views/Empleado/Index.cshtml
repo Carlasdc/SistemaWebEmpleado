@@ -47,12 +47,15 @@
                     @Html.DisplayFor(modelItem => item.Titulo)
                 </td>
                 <td>
-                    <a asp-action="ListarPorTitulo" asp-route-id="@item.Titulo">Titulo</a>
+                    
                     <a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                    <a asp-action="Create" asp-controller="Empleado">Nuevo Empleado</a>
+                    <a asp-action="ListarPorTitulo" asp-route-id="@item.Titulo">Titulo</a>
+                    <a asp-action="Detail" asp-route-id="@item.Id">Detalle</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<a asp-action="Create" asp-controller="Empleado">Nuevo Empleado</a>

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,13 +11,13 @@
     <div class="Header"> 
         <h1>SISTEMA Empleado</h1>
     </div>
-    <div class="Sidebar">#SideBar</div>
+    <div class="Sidebar">@ViewBag.SideBar</div>
     <div class="Nav">
         @Html.ActionLink("Home", "Index", "Home")
         @Html.ActionLink("Empleado", "Index", "Empleado")
     </div>
     <div id="Main" >@RenderBody() </div>
-    <div id="Footer"> <p>Info@Empledo.com</p></div>
+    <div id="Footer"> <p>Info@Empleado.com</p></div>
         
 </body>
 </html>
